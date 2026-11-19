@@ -169,7 +169,7 @@
 </div>
 
 <script>
-  const SCRIPT_URL = 'PEGA_AQUI_TU_URL_DE_APPS_SCRIPT';
+  const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyFTXJ0xRil5E9pVqdEagkht-0a2Gk3HPqun7wWMcKeaqEV0vHSQVe1WXxNXiHfF9af/exec';
   const estado = document.getElementById('estado');
   let hojaActual = 'ENTRADA';
 
@@ -216,11 +216,6 @@
     document.getElementById('tituloVista').textContent = `Últimos cargados en ${hoja}`;
     renderEncabezados(hoja);
     tbody.innerHTML = '<tr><td class="vacio" colspan="5">Actualizando...</td></tr>';
-
-    if (!SCRIPT_URL || SCRIPT_URL.includes('PEGA_AQUI')) {
-      tbody.innerHTML = '<tr><td class="vacio" colspan="5">Pega tu URL de Apps Script en el código.</td></tr>';
-      return;
-    }
 
     try {
       const resp = await fetch(`${SCRIPT_URL}?hoja=${encodeURIComponent(hoja)}&limite=8`);
